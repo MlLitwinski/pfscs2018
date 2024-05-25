@@ -1,0 +1,11 @@
+Error: Could not find the include file "partials/info_pj.ejs"
+    at getIncludePath (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:162:13)
+    at includeSource (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:306:17)
+    at /volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:702:26
+    at Array.forEach (<anonymous>)
+    at Template.generateSource (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:678:15)
+    at Template.compile (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:557:12)
+    at Object.compile (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:389:16)
+    at handleCache (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:212:18)
+    at tryHandleCache (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:251:16)
+    at View.exports.renderFile [as engine] (/volume1/code/ProjektX/ver/0.6.6/node_modules/ejs/lib/ejs.js:482:10)

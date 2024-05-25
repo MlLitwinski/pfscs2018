@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pl">
+<head>
+
+    <% include partials/main/head.ejs %>
+
+</head>
+<body>
+    <div id="wrapper" class="border safari_only">
+        <% include partials/main/navi.ejs %>
+
+        <div class="genBox" id="kwGenBox">
+            <img src="/images/exit.png" alt="exit" id="genBoxExit">
+            <table class="clear">
+                <tr><td colspan="2" class="genKwTabelaTd"></td></tr>
+                <tr><td>Kodeks wykroczeń:</td><td class="genKwTabelaTd"></td></tr>
+                <tr><td>Prawo o ruchu drogowym:</td><td class="genKwTabelaTd"></td></tr>
+                <tr><td>Grzywna w zł:</td><td class="genKwTabelaTd"></td></tr>
+                <tr><td>Punkty karne:</td><td class="genKwTabelaTd"></td></tr>
+                <tr><td>Kod wykroczenia:</td><td class="genKwTabelaTd"></td></tr>
+            </table>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+        <div id="info_prawo_jazdy">
+            <% include partials/info_pj.ejs %>
+        </div>
+
+        <div id="generatorAuto">
+        
+        </div>
+
+        <div id="generatorForm" class="border light">
+        <div id="generatorFormSpawca" class="genf border light">
+            <div id="btn_gen_osoba" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_osoba)"><h2>Osoba</h2></div>
+            <div class="ukryj">
+                <div class="genFormDivInput">
+                    <input type="text" id="osoba_imie" class="inputType" required><br>
+                    <label for="osoba_imie"><i>imię</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="osoba_nazwisko" class="inputType" required><br>
+                    <label for="osoba_nazwisko"><i>nazwisko</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="osoba_drugie_imie" class="inputType"><br>
+                    <label for="osoba_drugie_imie"><i>drugie imię</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="obywatelstwo" id="osoba_obywatelstwo" class="inputType" value="polskie" required>
+                    <datalist id="obywatelstwo">
+                        <option>polskie</option>
+                        <option>niemieckie</option>
+                        <option>ukraińskie</option>
+                        <option>litewskie</option>
+                    </datalist><br>
+                    <label for="osoba_obywatelstwo"><i>obywatelstwo</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="number" id="osoba_pesel" class="inputType" required><br>
+                    <label for="osoba_pesel" id="osoba_pesel_err"><i>PESEL</i></label>
+                </div>
+                <div class="ukryj">
+                    <input type="date" id="osoba_data_ur" class="inputType" required><br>
+                    <label for="osoba_data_ur"><i>data urodzenia</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <select id="osoba_plec" class="inputType">
+                        <option>mężczyzna</option>
+                        <option>kobieta</option>
+                    </select><br>
+                    <label for="osoba_plec"><i>płeć</i></label>
+                </div>
+                <span id="czyObywatelRP">
+                    <div class="genFormDivInput">
+                        <input type="text" id="osoba_imie_ojca" class="inputType" required><br>
+                        <label for="osoba_imie_ojca"><i>imię ojca</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input type="text" id="osoba_imie_matki" class="inputType"><br>
+                        <label for="osoba_imie_matki"><i>imię matki</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input type="text" id="osoba_nazwisko_matki" class="inputType"><br>
+                        <label for="osoba_nazwisko_matki"><i>nazwisko rodowe matki</i></label>
+                    </div>
+                </span>
+            <div class="gen_spaca"><h2>Zam.</div>
+
+                <div class="genFormDivInput">
+                    <input list="kraj" id="osoba_kraj" class="inputType" value="Polska" required>
+                        <datalist id="kraj">
+                            <option>Polska</option>
+                            <option>Niemcy</option>
+                            <option>Ukraina</option>
+                            <option>Litwa</option>
+                        </datalist><br>
+                    <label for="osoba_kraj"><i>kraj</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="osoba_kod_pocztowy" class="inputType" pattern="^[0-9]{2}-[0-9]{3}$" required><br>
+                    <label for="osoba_kod_pocztowy" id="osoba_kod_pocztowy_err"><i>kod pocztowy</i></label>
+                </div>
+                <div class="ukryj">
+                    <input type="number" id="osoba_kod_pocztowy_zag" class="inputType"><br>
+                    <label for="osoba_kod_pocztowy_zag"><i>kod pocztowy</i></label>
+                </div>
+                <div id="osoba_info" class="genFormDivInput">
+                        <span>Info</span>
+                </div><br>
+                <div class="genFormDivInput">
+                    <input list="osoba_miejscowosc_option" id="osoba_miejscowosc" class="inputType" required>
+                    <datalist id="osoba_miejscowosc_option">
+                    </datalist><br>
+                    <label for="osoba_miejscowosc"><i>miejscowość</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="osoba_ulica_option" id="osoba_ulica" class="inputType">
+                    <datalist id="osoba_ulica_option">
+                    </datalist><br>
+                <label for="osoba_ulica"><i>ulica</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="osoba_nr_domu" class="inputType" required><br>
+                    <label for="osoba_nr_domu"><i>nr domu / nr mieszkania</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <select id="osoba_wojewodstwo" class="inputType">
+                        <option class="centerSelectWoj">zachodniopomorskie</option>
+                        <option class="centerSelectWoj">dolnośląskie</option>
+                        <option class="centerSelectWoj">kujawsko-pomorskie</option>
+                        <option class="centerSelectWoj">lubelskie</option>
+                        <option class="centerSelectWoj">lubuskie</option>
+                        <option class="centerSelectWoj">łódzkie</option>
+                        <option class="centerSelectWoj">małopolskie</option>
+                        <option class="centerSelectWoj">mazowieckie</option>
+                        <option class="centerSelectWoj">opolskie</option>
+                        <option class="centerSelectWoj">podkarpackie</option>
+                        <option class="centerSelectWoj">podlaskie</option>
+                        <option class="centerSelectWoj">pomorskie</option>
+                        <option class="centerSelectWoj">śląskie</option>
+                        <option class="centerSelectWoj">świętokrzyskie</option>
+                        <option class="centerSelectWoj">warmińsko-mazurskie</option>
+                        <option class="centerSelectWoj">wielkopolskie</option>
+                    </select><br>
+                    <label for="osoba_wojewodstwo"><i>województwo</i></label>
+                </div>
+                <div class="ukryj">
+                    <input type="text" id="osoba_wojewodstwo_zag" class="inputType"><br>
+                    <label for="osoba_wojewodstwo_zag"><i>województwo</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="osoba_powiat_option" id="osoba_powiat" class="inputType" required>
+                    <datalist id="osoba_powiat_option">
+                    </datalist><br>
+                    <label for="osoba_powiat"><i>powiat</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="osoba_gmina_option" id="osoba_gmina" class="inputType" required>
+                    <datalist id="osoba_gmina_option">
+                    </datalist><br>
+                    <label for="osoba_gmina"><i>gmina</i></label>
+                </div>
+            </div>
+        </div>
+        <div id="generatorFormDokumenty" class="genf border light">
+            <div id="btn_gen_dokumenty" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_dokumenty)"><h2>Dokumenty</h2></div>
+            <div class="ukryj">
+                <div class="genFormDivInput">
+                <div></div>
+                    <select id="osoba_dowod" class="inputType">
+                        <option>dowód osobisty</option>
+                        <option>paszport</option>
+                        <option>karta pobytu na osiedlenie</option>
+                        <option>karta pobytu na zam</option>
+                    </select><br>
+                    <label for="osoba_dowod"><i>dokument tożsamości</i></label>
+                </div>
+                    <div class="genFormDivInput">
+                        <input type="text" id="osoba_nr_dokumentu" class="inputType" pattern="^[A-Z]{3}[0-9]{6}$" required><br>
+                        <label for="osoba_nr_dokumentu"><i id="osoba_dowod_err">nr dokumentu</i></label>
+                    </div>
+                <div class="genFormDivInput genFormRadio">
+                    <input type="radio" name="dowod" id="osoba_dowod_jest" checked><label for="osoba_dowod_jest" class="cursor"><span></span><i>posiadał</i></label>
+                    <input type="radio" name="dowod" id="osoba_dowod_brak"><label for="osoba_dowod_brak"  class="cursor"><span></span><i>nie posiadał</i></label><br>
+                    <i>przy sobie podczas kontroli</i>
+                </div>
+
+                <div class="gen_spaca"><h2>Prawo Jazdy</div>
+
+                <div class="genFormDivInput">
+                    <select id="osoba_czy_posiada_pj" class="inputType">
+                        <option>posiada (polskie)</option>
+                        <option>posiada</option>
+                        <option>nie posiada</option>
+                    </select><br>
+                    <label for="osoba_plec"><i>uprawnienia do kierowania</i></label>
+                </div>
+                <span id="pjNiePosiada">
+                    <div class="genFormDivInput">
+                        <input type="text" id="osoba_nr_pj" class="inputType" required><br>
+                        <label for="osoba_nr_pj"><i id="osoba_nr_pj_err">nr dokumentu</i></label>
+                    </div>
+                    <div id="osoba_pj_przy_kontroli" class="genFormDivInput genFormRadio">
+                        <input type="radio" name="pj" id="osoba_pj_jest" checked><label for="osoba_pj_jest" class="cursor"><span></span><i>posiadał</i></label>
+                        <input type="radio" name="pj" id="osoba_pj_brak"><label for="osoba_pj_brak"  class="cursor"><span></span><i>nie posiadał</i></label><br>
+                        <i>przy sobie podczas kontroli</i>
+                    </div>
+                    <div id="osoba_pj_odebrano" class="ukryj">
+                        <input type="radio" name="pj_czy_mial" id="osoba_pj_mial"><label for="osoba_pj_mial"  class="cursor"><span></span><i>posiadał</i></label>
+                        <input type="radio" name="pj_czy_mial" id="osoba_pj_nie_mial" checked><label for="osoba_pj_nie_mial" class="cursor"><span></span><i>nie posaidał</i></label>
+                        <br>
+                        <i id="osoba_pj_odebrano_err">nigdy uprawniań do kierowania</i>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input type="date" id="osoba_data_wydania_pj" class="inputType" required><br>
+                        <label for="osoba_data_wydania_pj"><i>data wydania</i></label>
+                    </div>
+                    <div name="osoba_data_pierwszego_pj" class="genFormDivInput">
+                        <input type="date" id="osoba_data_pierwszego_pj" class="inputType"><br>
+                        <label for="osoba_data_pierwszego_pj"><i>data pierwszych uprawnień</i></label>
+                    </div>
+                    <div name="osoba_pj_rodzaj" class="genFormDivInput">
+                    <select id="osoba_pj_rodzaj" class="inputType">
+                        <option>oryginał</option>
+                        <option>wtórnik</option>
+                    </select><br>
+                    <label for="osoba_pj_rodzaj"><i>balankiet</i></label>
+                    </div>
+                    <div name="osoba_pj_nr_blankietu" class="genFormDivInput">
+                        <input type="text" id="osoba_pj_nr_blankietu" class="inputType" required><br>
+                        <label for="osoba_pj_nr_blankietu"><i>nr blankietu</i></label>
+                    </div>
+                    <div id="pj_info" class="genFormDivInput">
+                        <span>Info</span>
+                    </div><br>
+                    <div name="osoba_pj_organ_wydający" class="genFormDivInput" style="width:96%;">
+                        <input type="text" id="osoba_pj_organ_wydający" class="inputType" required><br>
+                        <label for="osoba_pj_organ_wydający"><i>nazwa ogranu, który wystawił dokument</i></label>
+                    </div>
+                </span>
+                    <div id="genBox_pj_kat">
+                        <div>
+                        <input type="checkbox" id="pj_kat_a" class="ch_pj">
+                        <label for="pj_kat_a" class="cursor"><span></span><i>A</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_a1" class="ch_pj">
+                        <label for="pj_kat_a1" class="cursor"><span></span><i>A1</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_b" class="ch_pj">
+                        <label for="pj_kat_b" class="cursor"><span></span><i>B</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_b1" class="ch_pj">
+                        <label for="pj_kat_b1" class="cursor"><span></span><i>B1</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_c" class="ch_pj">
+                        <label for="pj_kat_c" class="cursor"><span></span><i>C</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_c1" class="ch_pj">
+                        <label for="pj_kat_c1" class="cursor"><span></span><i>C1</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_d" class="ch_pj">
+                        <label for="pj_kat_d" class="cursor"><span></span><i>D</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_d1" class="ch_pj">
+                        <label for="pj_kat_d1" class="cursor"><span></span><i>D1</i></label>
+                        </div>
+                        <div>
+                        <input type="checkbox" id="pj_kat_t" class="ch_pj">
+                        <label for="pj_kat_t" class="cursor"><span></span><i>T</i></label>
+                        </div>
+                        <select id="pj_kat_select" class="inputType">
+                            <option></option>
+                            <option>AM</option>
+                            <option>B+E</option>
+                            <option>C+E</option>
+                            <option>C1+E</option>
+                            <option>D+E</option>
+                            <option>D1+E</option>
+                        </select>
+                    <br><i id="pj_kat_error">posiadane kategorie prawa jazdy</i>
+                    </div>
+            </div>
+        </div>
+        <div id="generatorFormPojazd" class="genf border light">
+            <div id="btn_gen_pojazd" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_pojazd)"><h2>Pojazd</h2></div>
+            <div class="ukryj">
+                <div>
+                    <div class="genFormDivInput">
+                    <select id="pojazd_czy_zarejestrowanyA" class="inputType">
+                        <option>zarejestrowany</option>
+                        <option>nie zarejestrowany</option>
+                    </select><br>
+                    <label for="pojazd_czy_zarejestrowanyA"><i>rejestracja</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input list="pojazd_kraj_rejestracjiA" id="pojazd_kraj_rejA" class="inputType" value="Polska" required>
+                            <datalist id="pojazd_kraj_rejestracjiA">
+                                    <option>Polska</option>
+                                    <option>Niemcy</option>
+                                    <option>Ukraina</option>
+                                    <option>Litwa</option>
+                            </datalist><br>
+                        <label for="pojazd_kraj_rejA"><i>kraj rejestracji</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input type="text" id="pojazd_nr_vinA" class="inputType"><br>
+                        <label for="pojazd_nr_vinA"><i id="pojazd_nr_vinA_err">nr VIN</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input type="text" id="pojazd_nr_rejA" class="inputType" required><br>
+                        <label for="pojazd_nr_rejA"><i>nr rejestracyjny</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input list="pojazd_rodzajA_list" id="pojazd_rodzajA" class="inputType" required>
+                            <datalist id="pojazd_rodzajA_list">
+                                    <option>osobowy</option>
+                                    <option>ciężarowy</option>
+                                    <option>motocykl</option>
+                                    <option>ciągnik rolniczy</option>
+                            </datalist><br>
+                        <label for="pojazd_rodzajA"><i>rodzaj</i></label>
+                    </div>
+                    <div class="genFormDivInput">
+                        <input list="pojazd_markaA_lista" id="pojazd_markaA" class="inputType" required><br>
+                        <datalist id="pojazd_markaA_lista">
+                            <% for( var i = 0; i < marki.length; i++ ) { %>
+                                <option><%=marki[i]%></option>
+                            <% } %>
+                        </datalist>
+                        <label for="pojazd_markaA"><i>marka</i></label>
+                    </div>
+                    <br>
+                    <div id="btnPrzyczepaNaczepa" class="genFormDivInput">
+                        <span>Przyczepa/Naczepa</span>
+                    </div><br>
+                        <span id="spanPrzyczepaNaczepa">
+                            <h2 id="opisPrzyczepaNaczepa" class="ukryj">Przyczepa/Naczepa</h2>
+                            <div class="ukryj">
+                            <select id="pojazd_czy_zarejestrowanyB" class="inputType">
+                                <option>zarejestrowany</option>
+                                <option>nie zarejestrowany</option>
+                            </select><br>
+                            <label for="pojazd_czy_zarejestrowanyB"><i>rejestracja</i></label>
+                            </div>
+                            <div class="ukryj">
+                                <input list="pojazd_kraj_rejestracjiB" id="pojazd_kraj_rejB" class="inputType" value="Polska" required>
+                                    <datalist id="pojazd_kraj_rejestracjiB">
+                                            <option>Polska</option>
+                                            <option>Niemcy</option>
+                                            <option>Ukraina</option>
+                                            <option>Litwa</option>
+                                    </datalist><br>
+                                <label for="pojazd_kraj_rejB"><i>kraj rejestracji</i></label>
+                            </div>
+                            <div class="ukryj">
+                                <input type="text" id="pojazd_nr_vinB" class="inputType"><br>
+                                <label for="pojazd_nr_vinB"><i id="pojazd_nr_vinB_err">nr VIN</i></label>
+                            </div>
+                            <div class="ukryj">
+                                <input type="text" id="pojazd_nr_rejB" class="inputType" required><br>
+                                <label for="pojazd_nr_rejB"><i>nr rejestracyjny</i></label>
+                            </div>
+                            <div class="ukryj">
+                                <input list="pojazd_rodzajB_list" id="pojazd_rodzajB" class="inputType" required>
+                                    <datalist id="pojazd_rodzajB_list">
+                                            <option>przyczepa</option>
+                                            <option>naczepa</option>
+                                    </datalist><br>
+                                <label for="pojazd_rodzajB"><i>rodzaj</i></label>
+                            </div>
+                            <div class="ukryj">
+                                <input type="text" id="pojazd_markaB" class="inputType"><br>
+                                <label for="pojazd_markaB"><i>marka</i></label>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <div id="generatorFormMiejsce" class="genf border light">
+            <div id="btn_gen_miejsce" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_miejsce)"><h2>Miejsce i czas</h2></div>
+            <div class="ukryj">
+                <div class="genFormDivInput">
+                    <input type="date" id="miejsce_dzien" class="inputType" required><br>
+                    <label for="miejsce_dzien"><i>data kontroli</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <div id="miejsce_godziny">
+                        <input type="number" id="miejsce_godziny_input" class="inputType" min="0" max="24" required><br>
+                        <label for="miejsce_godziny"><i>godz.</i></label>
+                    </div>
+                    <div id="miejsce_minuty">
+                        <input type="number" id="miejsce_minuty_input" class="inputType" min="0" max="60" required><br>
+                        <label for="miejsce_minuty"><i>min.</i></label>
+                    </div>
+                </div>
+                <div class="genFormDivInput">
+                    <select id="miejsce_wojewodstwo" class="inputType">
+                        <option class="centerSelectWoj">zachodniopomorskie</option>
+                        <option class="centerSelectWoj">dolnośląskie</option>
+                        <option class="centerSelectWoj">kujawsko-pomorskie</option>
+                        <option class="centerSelectWoj">lubelskie</option>
+                        <option class="centerSelectWoj">lubuskie</option>
+                        <option class="centerSelectWoj">łódzkie</option>
+                        <option class="centerSelectWoj">małopolskie</option>
+                        <option class="centerSelectWoj">mazowieckie</option>
+                        <option class="centerSelectWoj">opolskie</option>
+                        <option class="centerSelectWoj">podkarpackie</option>
+                        <option class="centerSelectWoj">podlaskie</option>
+                        <option class="centerSelectWoj">pomorskie</option>
+                        <option class="centerSelectWoj">śląskie</option>
+                        <option class="centerSelectWoj">świętokrzyskie</option>
+                        <option class="centerSelectWoj">warmińsko-mazurskie</option>
+                        <option class="centerSelectWoj">wielkopolskie</option>
+                    </select><br>
+                    <label for="miejsce_wojewodstwo"><i>województwo</i></label>
+                </div>
+                <div class="genFormDivInput">
+                <select id="miejsce_rodzaj" class="inputType">
+                    <option>ulica</option>
+                    <option>miejscowość</option>
+                    <option>autostrada</option>
+                    <option>droga krajowa</option>
+                    <option>droga wojewódzka</option>
+                    <option>droga gminna</option>
+                </select><br>
+                <label for="miejsce_rodzaj"><i>rodzaj miejsca</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="miejsce_miejscowosc_option" id="miejsce_miejscowosc" class="inputType" required>
+                    <datalist id="miejsce_miejscowosc_option">
+                    </datalist><br>
+                    <label for="miejsce_miejscowosc"><i>miejscowość</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="miejsce_nazwa_ul_option" id="miejsce_nazwa_ul" class="inputType" required>
+                    <datalist id="miejsce_nazwa_ul_option">
+                    </datalist><br>
+                    <label for="miejsce_nazwa_ul"><i>nazwa ulicy</i></label>
+                </div>
+                <div class="ukryj">
+                    <input type="text" id="miejsce_nr_drogi" class="inputType" required><br>
+                    <label for="miejsce_nr_drogi"><i>nr drogi</i></label>
+                </div>
+                <div id="miejsce_miejscowosc_obok_radio" class="ukryj">
+                    <input type="radio" name="miejsce_obok" id="miejsce_miejscowosc_w"><label for="miejsce_miejscowosc_w" class="cursor"><span></span><i>w miejscowości</i></label>
+                    <input type="radio" name="miejsce_obok" id="miejsce_miejscowosc_obok" checked><label for="miejsce_miejscowosc_obok" class="cursor"><span></span><i>w pobliżu miejscowości</i></label><br>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="miejsce_powiat_option" id="miejsce_powiat" class="inputType" required>
+                    <datalist id="miejsce_powiat_option">
+                    </datalist><br>
+                    <label for="miejsce_powiat"><i>powiat</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="miejsce_gmina_option" id="miejsce_gmina" class="inputType" required>
+                    <datalist id="miejsce_gmina_option">
+                    </datalist><br>
+                    <label for="miejsce_gmina"><i>gmina</i></label>
+                </div>
+            </div>
+        </div>
+        <div id="generatorFormWynik" class="genf border light">
+            <div id="btn_gen_wynik" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_wynik)"><h2>Wynik</h2></div>
+            <div class="ukryj">
+                <div class="genFormDivInput">
+                <select id="wynik_rodzaj" class="inputType">
+                    <option>mandat kredytowy</option>
+                    <option>mandat gotówkowy</option>
+                    <option>mandat zaoczny</option>
+                    <option>wniosek o ukaranie</option>
+                </select><br>
+                <label for="wynik_rodzaj"><i>rodzaj</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="wynik_nr_mandat" class="inputType" required><br>
+                    <label for="wynik_nr_mandat"><i>nr mandatu</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="number" id="wynik_kwota" class="inputType" required><br>
+                    <label for="wynik_kwota"><i>kwota</i></label>
+                </div>
+                <div class="genFormDivInput"  style="width:96%;">
+                    <input list="fk_jednostka_option" id="fk_jednostka" class="inputType fk_input" required>
+                    <datalist id="fk_jednostka_option">
+                        <% for( var i = 0; i < kodyKas.jednostki.length; i++ ) { %>
+                            <option name="<%=kodyKas.jednostki[i].kod%>"><%=kodyKas.jednostki[i].nazwa%></option>
+                        <% } %>
+                    </datalist><br>
+                    <label for="fk_jednostka"><i>jednostka</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="fk_referat" class="inputType fk_input" required><br>
+                    <label for="fk_referat"><i>referat</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="fk_sygnatura" class="inputType fk_input" required><br>
+                    <label for="fk_sygnatura"><i>sygnatura</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="wynik_nr_sprawy" class="inputType" required><br>
+                    <label for="wynik_nr_sprawy"><i>nr sprawy / rok</i></label>
+                </div>
+            </div>
+        </div>
+
+        <div id="generatorFormWynik" class="genf border light">
+            <div id="btn_gen_fk" class="gen_spaca cursor" onclick="odkryjKat(btn_gen_fk)"><h2>Funkcjonariusz</h2></div>
+            <div class="ukryj">
+                <div class="genFormDivInput">
+                    <input type="text" id="fk_imie" class="inputType fk_input" required><br>
+                    <label for="fk_imie"><i>imię</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="fk_nazwisko" class="inputType fk_input" required><br>
+                    <label for="fk_nazwisko"><i>nazwisko</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="fk_stopien_option" id="fk_stopien" class="inputType fk_input" required>
+                    <datalist id="fk_stopien_option">
+                        <% for( var i = 0; i < kodyKas.stopnie.length; i++ ) { %>
+                            <option><%=kodyKas.stopnie[i]%></option>
+                        <% } %>
+                    </datalist><br>
+                    <label for="fk_stopien"><i>stopień</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input list="fk_stanowisko_option" id="fk_stanowisko" class="inputType fk_input" required>
+                    <datalist id="fk_stanowisko_option">
+                        <% for( var i = 0; i < kodyKas.stanowiska.length; i++ ) { %>
+                            <option><%=kodyKas.stanowiska[i]%></option>
+                        <% } %>
+                    </datalist><br>
+                    <label for="fk_stanowisko"><i>stanowisko</i></label>
+                </div>
+                <div class="genFormDivInput">
+                    <input type="text" id="fk_nr_leg" class="inputType fk_input" max="999999"required><br>
+                    <label for="fk_nr_leg"><i>nr legitymacji</i></label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border light" id='generatorBtnMenu'>
+            <div id="gen_kw_btn_mrd" class="generatorBtnDocPrd border light cursor">
+                <h2>Karta Rejestracyjna</h2>
+            </div>
+            <div id="gen_kw_btn_not" class="generatorBtnDocPrd border light cursor">
+                <h2>Notatka Służbowa</h2>
+            </div>
+            <div id="gen_kw_btn_oc" class="generatorBtnDocPrd border light cursor">
+                <h2>Fundusz Gwarancyjny</h2>
+            </div>
+        </div>
+
+
+        
+
+        <input type="button" value="test" id="testBtn">
+
+        
+        <% include partials/main/footer.ejs %>
+    </div>
+    <script src="../javascripts/generator.js"></script>
+</body>
+</html>

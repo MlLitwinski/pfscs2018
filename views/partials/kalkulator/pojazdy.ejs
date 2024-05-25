@@ -1,0 +1,35 @@
+<h2 id="kalkNazwa">Pojazdy</h2><br>
+
+<label for="data_input">Podaj datę przemieszczenia na terytoeium RP: </label><input type="date" id="data_input" class="inputType"><br>
+
+<label for="pojemnosc_silnika">Podaj pojemność silnika:</label> 
+<select id="pojemnosc_silnika" class="inputType">
+    <% for( var i = 0; i<stawki.pojazdy.pojemnosc.length; i++) { %>
+        <option value="<%=stawki.pojazdy.stawki[i]%>"><%= stawki.pojazdy.pojemnosc[i]%></option>
+    <% } %>
+</select><br>
+
+<label for="waluta">Podaj walutę w której dokonano zakupu:
+<select id="waluta" class="inputType">
+    <option>PLN</option>
+    <option>EUR</option>
+    <option>GBP</option>
+    <option>USD</option>
+</select>
+
+<span id="ieStawkiZapBtn" class="ukryj">Zatwierdź</span>
+<span id="serverError"></span><br>
+
+
+<label for="kwota">Podaj kwotę zakupu: </label><input type="number" id="kwota"><br>
+
+<label id="wynik_kurs1" for="wynik_kursInput"></label><input type="number" id="wynik_kursInput" class="ukryj"></span><br>
+
+<span id="wynik_kurs2"></span>
+
+<% include ../kalkulator/btn_wynik.ejs%>
+
+<% include ../kalkulator/wynik_pojazd.ejs %>
+
+<script src="javascripts/kalk/auto.js"></script>
+<script src="javascripts/kalk/kalkWspolne.js"></script>

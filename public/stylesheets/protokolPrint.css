@@ -1,0 +1,29 @@
+@page { size: auto;  margin: 0mm; }
+#proMenu, #kody2tab, #btnProAdd{
+    display: none;
+}
+#protoWrapper{
+    min-width: 700px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.tabDataPro{
+    background-color: #FFFFCC !important;
+    -webkit-print-color-adjust: exact;
+}
+.tdDark{
+    background-color: lightgrey !important;
+    -webkit-print-color-adjust: exact;
+}
+.printBrakeAfter {
+    page-break-after: always;
+}
+.printBrakeBefor {
+    page-break-before: always;
+}
+#mrdR1{
+    margin-top: -10px;
+    padding-top: 10px;
+}

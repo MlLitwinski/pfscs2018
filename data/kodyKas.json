@@ -1,0 +1,20 @@
+{
+"jednostki":[{"nazwa":"Lubelski Urząd Celno-skarbowy w Białej Podlaskiej","kod":308000},
+{"nazwa":"Podlaski Urząd Celno-Skarbowy w Białymstoku","kod":318000},
+{"nazwa":"Pomorski Urząd Celno-Skarbowy w Gdyni","kod":328000},
+{"nazwa":"Śląski Urząd Celno-Skarbowy w Katowicach","kod":338000},
+{"nazwa":"Świętokrzyski Urząd Celno-Skarbowy w Kielcach","kod":348000},
+{"nazwa":"Małopolski Urząd Celno-Skarbowy w Krakowie","kod":358000},
+{"nazwa":"Łódzki Urząd Celno-Skarbowy w Łodzi","kod":368000},
+{"nazwa":"Warmińsko-Mazurski Urząd Celno-Skarbowy w Olsztynie","kod":378000},
+{"nazwa":"Opolski Urząd Celno-Skarbowy w Opolu","kod":388000},
+{"nazwa":"Wielkopolski Urząd Celno-Skarbowy w Poznaniu","kod":398000},
+{"nazwa":"Podkarpacki Urząd Celno-Skarbowy w Przemyślu","kod":408000},
+{"nazwa":"Lubuski Urząd Celno-Skarbowy w Gorzowie Wielkopolskim","kod":418000},
+{"nazwa":"Zachodniopomorski Urząd Celno-Skarbowy w Szczecinie","kod":428000},
+{"nazwa":"Kujawsko-Pomorski Urząd Celno-Skarbowy w Toruniu","kod":438000},
+{"nazwa":"Mazowiecki Urząd Celno-Skarbowy w Warszawie","kod":448000},
+{"nazwa":"Dolnośląski Urząd Celno Skarbowy we Wrocławiu","kod":458000}],
+"stopnie":["aplikant","starszy aplikant","młodszy rewident","rewident","starszy rewident","młodszy rachmistrz","rachmistrz","starszy rachmistrz","młodszy aspirant","aspirant","starszy aspirant","podkomisarz","komisarz","nadkomisarz"],
+"stanowiska":["młodszy specjalista","specjalista","starszy specjalista","młodszy ekspert","ekspert","starszy ekspert"]
+}
